@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Consulta locacao ResultSet</title>
     </head>
     <body>
         <%
@@ -30,7 +30,7 @@
             <th>Nome</th>
             <th>Data</th>
             <th>Data Entrega</th>
-            <th>Data Devolução</th>
+            <th>Data devolução</th>
             </thead>
         
     </body>
@@ -46,7 +46,7 @@
         <td><%out.write(rs.getString("datadevolucao"));%></td>
         
     </tr>
-    <%}%>
+    <%%>
         </tbody>
 </table>
     </body>
