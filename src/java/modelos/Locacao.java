@@ -32,6 +32,7 @@ public class Locacao {
     private Cliente cliente;
     
     
+    
     public ResultSet consultarInner(){
         Connection con = Conexao.conectar();
         String sql = "select l.id, l.idcarro, c.placa, c.modelo, "+
@@ -49,6 +50,55 @@ public class Locacao {
         }
         return rs;
         
+    }
+    
+    public ResultSet consultarInner(int id){
+         Connection con = Conexao.conectar();
+        Locacao locacao = new Locacao();
+        String sql ="select l.id, l.idcarro, c.placa, c.modelo,\n "+
+               " l.cpfcliente, cli.nome, l.data,\n "+
+                "l.dataentrega, l.datadevolucao \n" +
+                "from locacao l, carro c, cliente cli\n "+
+                "where l.idcarro = c.id \n"+
+                "and l.cpfcliente = cli.cpf\n "+
+                "and l.id=?";
+       ResultSet rs = null;
+        try{
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setInt(1, id);
+            rs = stm.executeQuery();
+        }catch(SQLException ex){
+        }
+        
+                
+         return rs;
+    }
+    public boolean alterar(){
+        Connection con = Conexao.conectar();
+        String sql = "update locacao set"+
+                "idcarro=?,"+
+                "cpfcliente=?"+
+                "dataentrega=?"+
+                "data=?"+
+                "datadevolucao=?"+
+                "where id=?";
+        try{
+            PreparedStatement stm=con.prepareStatement(sql);
+            stm.setInt(1, this.carro.getId());
+            stm.setString(2,this.cliente.getCpf());
+            stm.setDate(3, this.dataentrega);
+            stm.setDate(4,this.data);
+            stm.setDate(5, this.datadevolucao);
+            stm.setInt(6,this.id);
+            
+            stm.execute();
+        }catch(SQLException ex){
+            System.out.print("Erro:" + ex.getMessage());
+        }
+        return true;
+            
+            
+       
     }
     
      public List<Locacao> consultar(String cliente){

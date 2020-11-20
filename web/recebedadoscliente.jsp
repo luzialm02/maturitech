@@ -29,11 +29,12 @@
           cliente.setNome(nome);
           cliente.setNumeroCartao(numerocartao);
           cliente.setEmail(email);
+          cliente.setFone(fone);
                 
          
         
           if(cliente.salvar()){
-              out.write("Cliente alterado com sucesso");
+              out.write("Cliente inserido com sucesso");
           }
           else
           {

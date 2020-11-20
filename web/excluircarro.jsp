@@ -17,6 +17,7 @@
         <%
             String idcarro = request.getParameter("idcarro");
             Carro c = new Carro();
+            c = c.consultar(Integer.parseInt(idcarro));
             if(c.excluir()){
                 out.write("Carro excluido com sucesso");
             }
@@ -24,7 +25,7 @@
             {
                 out.write("Problemas ao excluir carro");
             }
-            } 
+            
 
         %>
         <hr/>

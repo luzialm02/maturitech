@@ -39,7 +39,9 @@
                   <th>Carro</th>
                   <th>cliente</th>
                   <th>Data</th>
-                  <th>Data Retirada</th>
+                  <th>Data Entrega</th>
+                  <th>ações</th>
+                  
                 </thead>
                 <tbody>                    
                     <%for(Locacao loc: locacoes){%>
@@ -49,6 +51,7 @@
                             <td><%out.write(loc.getCliente().getCpf());%></td>
                             <td><%out.write(String.valueOf(loc.getData()));%></td>
                             <td><%out.write(String.valueOf(loc.getDataentrega()));%></td>
+                            <td><%out.write("<a href=cadastrolocacao.jsp?idlocacao="+loc.getId()+">Devolver</a>");%></td>
                         </tr>
                     <%}%>
                 </tbody>    
