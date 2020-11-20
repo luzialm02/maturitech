@@ -75,12 +75,12 @@ public class Locacao {
     }
     public boolean alterar(){
         Connection con = Conexao.conectar();
-        String sql = "update locacao set"+
-                "idcarro=?,"+
-                "cpfcliente=?"+
-                "dataentrega=?"+
-                "data=?"+
-                "datadevolucao=?"+
+        String sql = "update locacao set "+
+                "idcarro=?, "+
+                "cpfcliente=?, "+
+                "dataentrega=?, "+
+                "data=?, "+
+                "datadevolucao=? "+
                 "where id=?";
         try{
             PreparedStatement stm=con.prepareStatement(sql);

@@ -24,14 +24,13 @@
             String placa = "";
             String cliente ="";
             if(rs.next()){
-                locacao.setId(rs.getInt("id"));
-                
+                locacao.setId(rs.getInt("id"));                
                 Cliente cli = new Cliente();
                 cli = cli.consultar(rs.getString("cpfcliente"));
                 locacao.setCliente(cli);
                 
                 Carro carro = new Carro();
-                carro = carro.consultar("pPlaca");                
+                carro = carro.consultar(rs.getString("placa"));                
                 locacao.setCarro(carro);
                 
                 locacao.setData(rs.getDate("data"));
@@ -58,6 +57,7 @@
             
             <label> Id Locacao</label> 
             <input type="text" name="idlocacao" readonly="true"
+                   value="<%out.write(idlocacao);%>"/>
                    
             <label> Placa carro</label> 
             <input type="text" readonly="true" value="<%out.write(placa);%>"/> <br/>

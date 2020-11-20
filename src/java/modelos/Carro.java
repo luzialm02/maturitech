@@ -122,7 +122,7 @@ public class Carro {
            ResultSet rs = stm.executeQuery();
            if(rs.next()){
              carro = new Carro();
-             carro.setId(id);
+             carro.setId(rs.getInt("id"));
              carro.setPlaca(rs.getString("placa"));
              carro.setMarca(rs.getString("marca"));
              carro.setModelo(rs.getString("modelo"));

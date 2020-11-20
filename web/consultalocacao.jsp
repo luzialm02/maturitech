@@ -51,7 +51,7 @@
                             <td><%out.write(loc.getCliente().getCpf());%></td>
                             <td><%out.write(String.valueOf(loc.getData()));%></td>
                             <td><%out.write(String.valueOf(loc.getDataentrega()));%></td>
-                            <td><%out.write("<a href=cadastrolocacao.jsp?idlocacao="+loc.getId()+">Devolver</a>");%></td>
+                            <td><%out.write("<a href=cadastrodevolucao.jsp?idlocacao="+loc.getId()+">Devolver</a>");%></td>
                         </tr>
                     <%}%>
                 </tbody>    
