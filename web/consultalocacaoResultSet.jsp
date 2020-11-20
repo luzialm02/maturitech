@@ -30,7 +30,7 @@
             <th>Nome</th>
             <th>Data</th>
             <th>Data Entrega</th>
-            <th>Data devolução</th>
+            
             </thead>
         
     </body>
@@ -43,10 +43,10 @@
         <td><%out.write(rs.getString("nome"));%></td>
         <td><%out.write(rs.getString("data"));%></td>
         <td><%out.write(rs.getString("dataentrega"));%></td>
-        <td><%out.write(rs.getString("datadevolucao"));%></td>
+        
         
     </tr>
-    <%%>
+    <%}%>
         </tbody>
 </table>
     </body>
